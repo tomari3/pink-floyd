@@ -1,0 +1,107 @@
+/* All body */
+body {}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Top Div, Header */
+.TopDiv {
+  display: block;
+  overflow: hidden;
+  width: 100vw;
+  height: 200px;
+}
+
+/* Headehr - 'pink floyd Anthology' */
+.Head {
+  top: 60px;
+  position: relative;
+  text-align: center;
+  font-size: 5.5em;
+  font-family: sans-serif;
+  font-weight: bolder;
+  overflow: hidden;
+}
+
+/* Div for all the images, main content */
+.imgs_cont {
+  padding: 6vw;
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: 100px;
+  grid-gap: 3px;
+}
+
+/* All albms */
+.Cover img {}
+
+.d_img {
+  transition: all 0.5s ease-out;
+}
+
+.Cover::after {}
+
+.d_img:hover,
+.d_img:focus {
+  z-index: 1;
+  transform: scale(1.8);
+}
+
+
+
+.imgs_cont:hover>.d_img:not(:hover) {
+  filter: brightness(0.4);
+  filter: grayscale(0.8);
+  border-radius: 8%;
+}
+
+.d_img {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+$bg-color: black;
+$white L #fff;
+$black : #000;
+
+@function set-text-color($color) {
+  @if (lightness( $color ) > 50) {
+    @return $black;
+  }
+  @else {
+    @return $white;
+  }
+}
+
+.img_desc {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  color: set-text-color($bg-color);
+  font-size: 10px;
+  font-family: "Arial";
+  font-weight: bold;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+.d_img:hover .img_desc{
+  visibility: visible;
+  opacity: 1;
+}
+.d_img:hover .Cover{
+  border-radius: 8%;
+  filter: brightness(70%);
+  filter: blur(1);
+}
